@@ -1,0 +1,10 @@
+@import "/css/reset.css";
+
+article{
+    display: flex;
+    flex-direction: column;
+}
+
+/* .question{
+    display: none;
+} */
