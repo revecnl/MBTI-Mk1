@@ -31,6 +31,9 @@
         <img src="/pic/yellow-saber.jpg" id="img" class="rounded-circle mt-5" alt="saber">
         <h2 id="color" class="text-center mt-5">color</h2>
         <h3 id="explain" class="text-center mt-5">text</h3>
+
+        <!-- 처음으로 돌아가기 -->
+        <a href="" id="back_to_main" class="text-center mt-5">Try again</a>
     </article>
 
 <!-- mbti로직 -->
@@ -59,6 +62,14 @@
             11: {"title":"question 11" , "type": "JP" , "A": "J" , "B" : "P"},
             12: {"title":"question 12" , "type": "JP" , "A": "J" , "B" : "P"},
         }
+        // 결과에 따른 결과화면 다르게 만들기
+        var result = {
+            "ISTJ": {"color":"red", "explain":"aaa", "img":"/pic/yellow-saber.jpg"},
+            "ESTP": {"color":"yellow", "explain":"bbb", "img":"/pic/yellow-saber.jpg"},
+            "ESFJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"}
+        }
+
+
         function start(){
             $(".main_page").hide();
             $(".question").show();
@@ -69,7 +80,7 @@
         $("#A").click(function(){
            var type = $("#mbti_type").val();
            var preValue = $("#"+type).val();
-           $("#"+type).val(parseInt(preValue)+1);
+           $("#"+type).val(parseInt(preValue)+1); 
            next();
         });
 
@@ -88,9 +99,13 @@
                 ($("#SN").val() < 2) ? mbti+="N" : mbti+="S";
                 ($("#TF").val() < 2) ? mbti+="F" : mbti+="T";
                 ($("#JP").val() < 2) ? mbti+="P" : mbti+="J";
-                           
+                //결과창    
                 alert(mbti);
+                $("#img").attr("src",result[mbti]["img"]);
+                $("#color").html(result[mbti]["color"]);
+                $("#explain").html(result[mbti]["explain"]);
             }else{
+                // 진행바가 문제 진행에 맞춰 진행되게, 문제 진행 로직
                 $(".progress-bar").attr('style','width: calc(100/12*'+number+'%)');
                 $("#title").html(questions[number]["title"]);
                 $("#mbti_type").val(questions[number]["type"]);
