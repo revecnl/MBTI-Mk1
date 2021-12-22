@@ -15,7 +15,7 @@
         <button type="button" class="btn btn-secondary mt-5" onclick='start();'>Test Start</button>
     </article>
 
-
+<!--결과페이지-->
     <article class="question mt-5 text-center" >
         <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -64,12 +64,25 @@
         }
         // 결과에 따른 결과화면 다르게 만들기
         var result = {
-            "ISTJ": {"color":"red", "explain":"aaa", "img":"/pic/yellow-saber.jpg"},
-            "ESTP": {"color":"yellow", "explain":"bbb", "img":"/pic/yellow-saber.jpg"},
-            "ESFJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"}
+            "ISTJ": {"color":"Red", "explain":"Commend", "img":"/pic/yellow-saber.jpg"},
+            "ISFJ": {"color":"Yellow", "explain":"bbb", "img":"/pic/yellow-saber.jpg"},
+            "INFJ": {"color":"Violet", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "INTJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "ISTP": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "ISFP": {"color":"Violet", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "INFP": {"color":"Violet", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "INTP": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "ESTP": {"color":"Red", "explain":"Rebellion", "img":"/pic/yellow-saber.jpg"},
+            "ESFP": {"color":"Red", "explain":"Natural", "img":"/pic/yellow-saber.jpg"},
+            "ENFP": {"color":"Yellow", "explain":"Curiosity", "img":"/pic/yellow-saber.jpg"},
+            "ENTP": {"color":"Yellow", "explain":"Invent", "img":"/pic/yellow-saber.jpg"},
+            "ESTJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "ESFJ": {"color":"Red", "explain":"Interested", "img":"/pic/yellow-saber.jpg"},
+            "ENFJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "ENTJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
         }
 
-
+        //시작시 시작화면 숨기기
         function start(){
             $(".main_page").hide();
             $(".question").show();
@@ -100,7 +113,6 @@
                 ($("#TF").val() < 2) ? mbti+="F" : mbti+="T";
                 ($("#JP").val() < 2) ? mbti+="P" : mbti+="J";
                 //결과창    
-                alert(mbti);
                 $("#img").attr("src",result[mbti]["img"]);
                 $("#color").html(result[mbti]["color"]);
                 $("#explain").html(result[mbti]["explain"]);

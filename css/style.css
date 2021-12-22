@@ -1,5 +1,9 @@
 @import "/css/reset.css";
 
+body{
+    background-color: rgb(196, 192, 192);
+}
+
 article{
     display: flex;
     flex-direction: column;
