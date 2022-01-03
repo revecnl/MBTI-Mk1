@@ -29,18 +29,17 @@
     <!-- 결과페이지 -->
     <article class="result">
         <img src="/pic/yellow-saber.jpg" id="img" class="rounded-circle mt-5" alt="saber">
-        <h2 id="color" class="text-center mt-5">color</h2>
-        <h3 id="explain" class="text-center mt-5">text</h3>
+        <h2 id="color" class="text-center mt-5"></h2>
+        <h3 id="explain" class="text-center mt-5"></h3>
 
         <!-- 처음으로 돌아가기 -->
         <a href="" id="back_to_main" class="text-center mt-5">Try again</a>
     </article>
 
 <!-- mbti로직 -->
-    <input type="hidden" id="EI" value="0">
-    <input type="hidden" id="SN" value="0">
-    <input type="hidden" id="TF" value="0">
-    <input type="hidden" id="JP" value="0">
+    <input type="hidden" id="EI" value="0"><!--제다이 그레이-->
+    <input type="hidden" id="SN" value="0"><!--제다이 시스-->
+    <input type="hidden" id="TF" value="0"><!--시스 그레이-->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
@@ -49,37 +48,37 @@
         // 문제페이지 및 답변 오브젝트
         var number = 1;
         var questions = {
-            1: {"title":"question 1" , "type": "EI" , "A": "E" , "B" : "I"},
-            2: {"title":"question 2" , "type": "EI" , "A": "E" , "B" : "I"},
-            3: {"title":"question 3" , "type": "EI" , "A": "E" , "B" : "I"},
-            4: {"title":"question 4" , "type": "SN" , "A": "S" , "B" : "N"},
-            5: {"title":"question 5" , "type": "SN" , "A": "S" , "B" : "N"},
-            6: {"title":"question 6" , "type": "SN" , "A": "S" , "B" : "N"},
-            7: {"title":"question 7" , "type": "TF" , "A": "T" , "B" : "F"},
-            8: {"title":"question 8" , "type": "TF" , "A": "T" , "B" : "F"},
-            9: {"title":"question 9" , "type": "TF" , "A": "T" , "B" : "F"},
-            10: {"title":"question 10" , "type": "JP" , "A": "J" , "B" : "P"},
-            11: {"title":"question 11" , "type": "JP" , "A": "J" , "B" : "P"},
-            12: {"title":"question 12" , "type": "JP" , "A": "J" , "B" : "P"},
+            1: {"title":"당신을 나타내는 단어." , "type": "EI" , "A": "평화" , "B" : "조화"},
+            2: {"title":"조화를 이루기 위해 우리는" , "type": "EI" , "A": "혼돈에 맞선다." , "B" : "적과 싸워 승리를 쟁취한다."},
+            3: {"title":"시간적 여유가 있을 때 나는" , "type": "EI" , "A": "책을 읽어 지성을 높힌다.." , "B" : "전문 기술을 익힌다."},
+            4: {"title":"누군가 당신의 연인을 다치게 했다." , "type": "SN" , "A": "이성적으로 판단하여 사과를 받아낸다." , "B" : "본거지로 찾아가 모조리 베어버린다."},
+            5: {"title":"임무 수행중 지금은 아니지만 나중에 위험 할 수도 있는 물건을 누군가 가지고 있는 것을 보았다." , "type": "SN" , "A": "상부에 보고 후 물건을 얻기 위해 협상한다." , "B" : "후한을 없에기 위해 물건을 강탈한다."},
+            6: {"title":"당신은 오랜 전투 끝에 기력이 다해 쓰러졌다." , "type": "SN" , "A": "겸허히 포스와 하나됨을 느낀다." , "B" : "나는 죽지 않는다. 죽지 않기 위해 끝까지 발버둥친다."},
+            7: {"title":"내가 강해지는 방법은.." , "type": "TF" , "A": "공포를 이겨내는 것" , "B" : "기술을 통해 강해지는 것"},
+            8: {"title":"상부에서 받은 임무수행 비용을 내기에서 잃었다." , "type": "TF" , "A": "이 내기는 무효다. 전부 없에버린다." , "B" : "마인드컨트롤을 통해 돈을 회수한다."},
+            9: {"title":"나에게 포스는.." , "type": "TF" , "A": "자유다" , "B" : "포스는 포스다"},
+            10: {"title":"전선을 사수하라는 상부의 명령을 받은 나, 하지만 적의 전력이 너무 강하다.." , "type": "EI" , "A": "상부에 지원을 요청하고 자리를 지킨다." , "B" : "나를 포함한 별동대를 꾸려 적의 후방을 급습하여 아군이 후퇴 할 시간을 번다."},
+            11: {"title":"악질 범죄자와 칼을 맞대고 있다. 그는 우리의 주요인물을 살해했다.. 승기를 잡은 나는.." , "type": "SN" , "A": "그를 무장해제 시킨다." , "B" : "복수를 위해 그를 처치한다."},
+            12: {"title":"열정이 불타오른다." , "type": "TF" , "A": "나는 더 강한 힘을 얻을 것이다." , "B" : "나는 더 강한 집중력을 얻을 것이다."},
         }
         // 결과에 따른 결과화면 다르게 만들기
         var result = {
-            "ISTJ": {"color":"Red", "explain":"Commend", "img":"/pic/yellow-saber.jpg"},
-            "ISFJ": {"color":"Yellow", "explain":"bbb", "img":"/pic/yellow-saber.jpg"},
-            "INFJ": {"color":"Violet", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
-            "INTJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
-            "ISTP": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
-            "ISFP": {"color":"Violet", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
-            "INFP": {"color":"Violet", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
-            "INTP": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
-            "ESTP": {"color":"Red", "explain":"Rebellion", "img":"/pic/yellow-saber.jpg"},
-            "ESFP": {"color":"Red", "explain":"Natural", "img":"/pic/yellow-saber.jpg"},
-            "ENFP": {"color":"Yellow", "explain":"Curiosity", "img":"/pic/yellow-saber.jpg"},
-            "ENTP": {"color":"Yellow", "explain":"Invent", "img":"/pic/yellow-saber.jpg"},
-            "ESTJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
-            "ESFJ": {"color":"Red", "explain":"Interested", "img":"/pic/yellow-saber.jpg"},
-            "ENFJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
-            "ENTJ": {"color":"green", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "IST": {"color":"JEDI", "explain":"당신은 제다이 기사입니다. 당신은 평화를 위해 당신의 모든 욕심과 감정을 버릴 수 있는 몇 안되는 사람 중 하나입니다. 무디 은하계가 다시 평화를 되찾을 수 있게 힘써 주시길", "img":"/pic/yellow-saber.jpg"},
+            "ISF": {"color":"GREY", "explain":"bbb", "img":"/pic/yellow-saber.jpg"},
+            "INF": {"color":"GREY", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "INT": {"color":"SITH", "explain":"당신은 시스전사입니다.", "img":"/pic/yellow-saber.jpg"},
+            "IST": {"color":"GREY", "explain":"당신은 특별하게 규형잡힌 사람입니다. 규율에 얽메이지도 어두운면에 갇히지도 않았습니다. 평화와 조화, 혼돈의 소용돌이에서 당신의 운명은 아직 정해지지 않은 듯 합니다.", "img":"/pic/yellow-saber.jpg"},
+            "ISF": {"color":"GREY", "explain":"당신은 제다이 기사단입니다. 당신은 평의회의 지시를 받지만 당신은 그들이 원하는 대로 움직이는 것을 원치 않습니다. 당신은 당신의 방식대로 어떠한 방법으로든 문제를 해결할 것 입니다. 단 폭력적인 방법만은 제외하고 말이죠. ", "img":"/pic/yellow-saber.jpg"},
+            "INF": {"color":"GREY", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "INT": {"color":"SITH", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "EST": {"color":"JEDI", "explain":"Rebellion", "img":"/pic/yellow-saber.jpg"},
+            "ESF": {"color":"JEDI", "explain":"Natural", "img":"/pic/yellow-saber.jpg"},
+            "ENF": {"color":"JEDI", "explain":"Curiosity", "img":"/pic/yellow-saber.jpg"},
+            "ENT": {"color":"SITH", "explain":"Invent", "img":"/pic/yellow-saber.jpg"},
+            "EST": {"color":"JEDI", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "ESF": {"color":"JEDI", "explain":"Interested", "img":"/pic/yellow-saber.jpg"},
+            "ENF": {"color":"JEDI", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
+            "ENT": {"color":"SITH", "explain":"ccc", "img":"/pic/yellow-saber.jpg"},
         }
 
         //시작시 시작화면 숨기기
@@ -111,7 +110,6 @@
                 ($("#EI").val() < 2) ? mbti+="I" : mbti+="E";
                 ($("#SN").val() < 2) ? mbti+="N" : mbti+="S";
                 ($("#TF").val() < 2) ? mbti+="F" : mbti+="T";
-                ($("#JP").val() < 2) ? mbti+="P" : mbti+="J";
                 //결과창    
                 $("#img").attr("src",result[mbti]["img"]);
                 $("#color").html(result[mbti]["color"]);
